@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details - Velvet Vogue</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    .navbar-brand img {
+      height: 25px;
+      margin-right: 10px;
+    }
+    .product-img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      max-width: 350px;
+    }
+    .product-details {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .product-info {
+      flex: 1;
+    }
+    .message {
+      margin-top: 15px;
+      color: green;
+      font-weight: bold;
+    }
+    .cart-btns {
+      margin-top: 10px;
+    }
+    @media (max-width: 768px) {
+      .product-details {
+        flex-direction: column;
+        align-items: center;
+      }
+      .product-img {
+        max-width: 100%;
+      }
+    }
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="Logo">
+        Velvet Vogue
+      </a>
+    </div>
+  </nav>
+
+  <!-- Product Details -->
+  <div class="container my-5" id="product-details">
+    <!-- Product details will be inserted here -->
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Velvet Vogue. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Get query parameters
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    const price = params.get('price');
+    const img = params.get('img');
+    const desc = params.get('desc');
+
+    // Example sizes and colors
+    const sizes = ['S', 'M', 'L', 'XL'];
+    const colors = ['Black', 'White', 'Blue', 'Red'];
+
+    // Display product details
+    if (name && price && img && desc) {
+      document.getElementById('product-details').innerHTML = `
+        <div class="product-details">
+          <div>
+            <img src="${decodeURIComponent(img)}" class="product-img" alt="${decodeURIComponent(name)}">
+          </div>
+          <div class="product-info">
+            <h2>${decodeURIComponent(name)}</h2>
+            <p>${decodeURIComponent(desc)}</p>
+            <p><strong>Price: $<span id="totalPrice">${parseFloat(price).toFixed(2)}</span></strong></p>
+            <div class="mb-3">
+              <label for="quantity" class="form-label">Quantity:</label>
+              <input type="number" id="quantity" class="form-control" value="1" min="1" style="width:100px;">
+            </div>
+            <div class="mb-3">
+              <label for="size" class="form-label">Size:</label>
+              <select id="size" class="form-select" style="width:150px;">
+                ${sizes.map(size => `<option value="${size}">${size}</option>`).join('')}
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="color" class="form-label">Color:</label>
+              <select id="color" class="form-select" style="width:150px;">
+                ${colors.map(color => `<option value="${color}">${color}</option>`).join('')}
+              </select>
+            </div>
+            <button id="addToCartBtn" class="btn btn-outline-primary me-2">Add to Cart</button>
+            <button class="btn btn-primary">Buy Now</button>
+            <div id="cartMessage" class="message" style="display:none;"></div>
+            <div class="cart-btns">
+              <button id="goToCartBtn" class="btn btn-success" style="display:none;">Go to Cart</button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Price update logic
+      const priceNum = parseFloat(price);
+      const quantityInput = document.getElementById('quantity');
+      const totalPriceSpan = document.getElementById('totalPrice');
+      quantityInput.addEventListener('input', function() {
+        const qty = Math.max(1, parseInt(quantityInput.value) || 1);
+        totalPriceSpan.textContent = (priceNum * qty).toFixed(2);
+      });
+
+      // Add to Cart functionality (save to localStorage)
+      document.getElementById('addToCartBtn').addEventListener('click', function() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const quantity = Math.max(1, parseInt(document.getElementById('quantity').value) || 1);
+        const size = document.getElementById('size').value;
+        const color = document.getElementById('color').value;
+
+        // Check if item with same name, size, color exists, then update quantity
+        const existing = cart.find(item =>
+          item.name === decodeURIComponent(name) &&
+          item.size === size &&
+          item.color === color
+        );
+        if (existing) {
+          existing.quantity += quantity;
+        } else {
+          cart.push({
+            name: decodeURIComponent(name),
+            price: priceNum,
+            img: decodeURIComponent(img),
+            desc: decodeURIComponent(desc),
+            quantity: quantity,
+            size: size,
+            color: color
+          });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        document.getElementById('cartMessage').textContent = "Item added to the cart succesfully";
+        document.getElementById('cartMessage').style.display = "block";
+        document.getElementById('goToCartBtn').style.display = "inline-block";
+      });
+
+      // Go to Cart button
+      document.getElementById('goToCartBtn').addEventListener('click', function() {
+        window.location.href = "cart.html";
+      });
+
+    } else {
+      document.getElementById('product-details').innerHTML = `<p>Product not found.</p>`;
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

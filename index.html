@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Velvet Vogue - Products</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    .product-card img {
+      height: 250px;
+      object-fit: cover;
+    }
+    .navbar-brand img {
+    height: 35px; /* reduced from 40px */
+    margin-right: 10px;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand img" href="#">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="Logo">
+        Velvet Vogue
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#login">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="bg-dark text-white text-center p-5">
+    <h1>Welcome to Velvet Vogue</h1>
+    <p>Trendy Casualwear and Elegant Formalwear for the Modern Youth</p>
+    <a href="#products" class="btn btn-primary">Explore Collection</a>
+  </div>
+
+  <!-- Product Section -->
+  <section class="container my-5" id="products">
+  <h2 class="text-center mb-4">Featured Products</h2>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+    <!-- Product 1 -->
+    <div class="col">
+      <div class="card h-100 product-card">
+        <a href="product.html?name=Graphic%20TShirt&price=19.99&img=https://fbpros3v1.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2023/09/0203210837GRY-3_Unisex_T-Shirt_Fashion-Bug-Sri-Lanka.jpg&desc=Trendy%20cotton%20tee%20with%20bold%20prints." style="text-decoration:none; color:inherit;">
+          <img src="https://fbpros3v1.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2023/09/0203210837GRY-3_Unisex_T-Shirt_Fashion-Bug-Sri-Lanka.jpg" class="card-img-top" alt="Graphic TShirt">
+          <h5 class="card-title mt-2">Graphic TShirt</h5>
+        </a>
+        <div class="card-body">
+          <p class="card-text">Trendy cotton tee with bold prints.</p>
+          <p><strong>$19.99</strong></p>
+          <a href="product.html?name=Graphic%20TShirt&price=19.99&img=https://fbpros3v1.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2023/09/0203210837GRY-3_Unisex_T-Shirt_Fashion-Bug-Sri-Lanka.jpg&desc=Trendy%20cotton%20tee%20with%20bold%20prints." class="btn btn-outline-primary">Add to Cart</a>
+          <a href="product.html?name=Graphic%20TShirt&price=19.99&img=https://fbpros3v1.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2023/09/0203210837GRY-3_Unisex_T-Shirt_Fashion-Bug-Sri-Lanka.jpg&desc=Trendy%20cotton%20tee%20with%20bold%20prints." class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="col">
+      <div class="card h-100 product-card">
+        <a href="product.html?name=Casual%20V-Neck&price=24.99&img=https://i.etsystatic.com/15215352/r/il/d3309b/3476223911/il_fullxfull.3476223911_pxae.jpg&desc=Lightweight%20and%20soft-touch%20V-neck%20for%20everyday%20comfort." style="text-decoration:none; color:inherit;">
+          <img src="https://i.etsystatic.com/15215352/r/il/d3309b/3476223911/il_fullxfull.3476223911_pxae.jpg" class="card-img-top" alt="Casual V-Neck">
+          <h5 class="card-title mt-2">Casual V-Neck</h5>
+        </a>
+        <div class="card-body">
+          <p class="card-text">Lightweight and soft-touch V-neck for everyday comfort.</p>
+          <p><strong>$24.99</strong></p>
+          <a href="product.html?name=Casual%20V-Neck&price=24.99&img=https://i.etsystatic.com/15215352/r/il/d3309b/3476223911/il_fullxfull.3476223911_pxae.jpg&desc=Lightweight%20and%20soft-touch%20V-neck%20for%20everyday%20comfort." class="btn btn-outline-primary">Add to Cart</a>
+          <a href="product.html?name=Casual%20V-Neck&price=24.99&img=https://i.etsystatic.com/15215352/r/il/d3309b/3476223911/il_fullxfull.3476223911_pxae.jpg&desc=Lightweight%20and%20soft-touch%20V-neck%20for%20everyday%20comfort." class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="col">
+      <div class="card h-100 product-card">
+        <a href="product.html?name=Formal%20Shirt&price=29.99&img=https://shop.westside.com/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0266%2F6276%2F4597%2Ffiles%2F301004813GREEN_1.jpg%3Fv%3D1733293000&w=2048&q=75&desc=Perfect%20for%20work%20and%20formal%20occasions." style="text-decoration:none; color:inherit;">
+          <img src="https://shop.westside.com/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0266%2F6276%2F4597%2Ffiles%2F301004813GREEN_1.jpg%3Fv%3D1733293000&w=2048&q=75" class="card-img-top" alt="Formal Shirt">
+          <h5 class="card-title mt-2">Formal Shirt</h5>
+        </a>
+        <div class="card-body">
+          <p class="card-text">Perfect for work and formal occasions.</p>
+          <p><strong>$29.99</strong></p>
+          <a href="product.html?name=Formal%20Shirt&price=29.99&img=https://shop.westside.com/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0266%2F6276%2F4597%2Ffiles%2F301004813GREEN_1.jpg%3Fv%3D1733293000&w=2048&q=75&desc=Perfect%20for%20work%20and%20formal%20occasions." class="btn btn-outline-primary">Add to Cart</a>
+          <a href="product.html?name=Formal%20Shirt&price=29.99&img=https://shop.westside.com/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0266%2F6276%2F4597%2Ffiles%2F301004813GREEN_1.jpg%3Fv%3D1733293000&w=2048&q=75&desc=Perfect%20for%20work%20and%20formal%20occasions." class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="col">
+      <div class="card h-100 product-card">
+        <a href="product.html?name=Classic%20Blazer&price=59.99&img=https://brooksbrothers.bynder.com/match/WebName/MD00128_NAVY/?$small$&desc=Tailored%20fit%20blazer%20for%20special%20events." style="text-decoration:none; color:inherit;">
+          <img src="https://brooksbrothers.bynder.com/match/WebName/MD00128_NAVY/?$small$" class="card-img-top" alt="Classic Blazer">
+          <h5 class="card-title mt-2">Classic Blazer</h5>
+        </a>
+        <div class="card-body">
+          <p class="card-text">Tailored fit blazer for special events.</p>
+          <p><strong>$59.99</strong></p>
+          <a href="product.html?name=Classic%20Blazer&price=59.99&img=https://brooksbrothers.bynder.com/match/WebName/MD00128_NAVY/?$small$&desc=Tailored%20fit%20blazer%20for%20special%20events." class="btn btn-outline-primary">Add to Cart</a>
+          <a href="product.html?name=Classic%20Blazer&price=59.99&img=https://brooksbrothers.bynder.com/match/WebName/MD00128_NAVY/?$small$&desc=Tailored%20fit%20blazer%20for%20special%20events." class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 5 -->
+    <div class="col">
+      <div class="card h-100 product-card">
+        <a href="product.html?name=Slim%20Fit%20Jeans&price=39.99&img=https://www.alcott.eu/dw/image/v2/BDJZ_PRD/on/demandware.static/-/Sites-catalog-alcott-master/default/dw2232e44c/hi-res/5T3889UOY13_D005_001.jpg?sw=1000&sh=1350&q=90&strip=false&desc=Denim%20with%20a%20modern%20cut%20for%20a%20sleek%20look." style="text-decoration:none; color:inherit;">
+          <img src="https://www.alcott.eu/dw/image/v2/BDJZ_PRD/on/demandware.static/-/Sites-catalog-alcott-master/default/dw2232e44c/hi-res/5T3889UOY13_D005_001.jpg?sw=1000&sh=1350&q=90&strip=false" class="card-img-top" alt="Slim Fit Jeans">
+          <h5 class="card-title mt-2">Slim Fit Jeans</h5>
+        </a>
+        <div class="card-body">
+          <p class="card-text">Denim with a modern cut for a sleek look.</p>
+          <p><strong>$39.99</strong></p>
+          <a href="product.html?name=Slim%20Fit%20Jeans&price=39.99&img=https://www.alcott.eu/dw/image/v2/BDJZ_PRD/on/demandware.static/-/Sites-catalog-alcott-master/default/dw2232e44c/hi-res/5T3889UOY13_D005_001.jpg?sw=1000&sh=1350&q=90&strip=false&desc=Denim%20with%20a%20modern%20cut%20for%20a%20sleek%20look." class="btn btn-outline-primary">Add to Cart</a>
+          <a href="product.html?name=Slim%20Fit%20Jeans&price=39.99&img=https://www.alcott.eu/dw/image/v2/BDJZ_PRD/on/demandware.static/-/Sites-catalog-alcott-master/default/dw2232e44c/hi-res/5T3889UOY13_D005_001.jpg?sw=1000&sh=1350&q=90&strip=false&desc=Denim%20with%20a%20modern%20cut%20for%20a%20sleek%20look." class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="col">
+      <div class="card h-100 product-card">
+        <a href="product.html?name=Urban%20Hoodie&price=34.99&img=https://houseofurban.co.uk/cdn/shop/products/LloydUrbanHoodieLifestyle-1_1080x.jpg?v=1697461532&desc=Stylish%20hoodie%20for%20daily%20comfort." style="text-decoration:none; color:inherit;">
+          <img src="https://houseofurban.co.uk/cdn/shop/products/LloydUrbanHoodieLifestyle-1_1080x.jpg?v=1697461532" class="card-img-top" alt="Urban Hoodie">
+          <h5 class="card-title mt-2">Urban Hoodie</h5>
+        </a>
+        <div class="card-body">
+          <p class="card-text">Stylish hoodie for daily comfort.</p>
+          <p><strong>$34.99</strong></p>
+          <a href="product.html?name=Urban%20Hoodie&price=34.99&img=https://houseofurban.co.uk/cdn/shop/products/LloydUrbanHoodieLifestyle-1_1080x.jpg?v=1697461532&desc=Stylish%20hoodie%20for%20daily%20comfort." class="btn btn-outline-primary">Add to Cart</a>
+          <a href="product.html?name=Urban%20Hoodie&price=34.99&img=https://houseofurban.co.uk/cdn/shop/products/LloydUrbanHoodieLifestyle-1_1080x.jpg?v=1697461532&desc=Stylish%20hoodie%20for%20daily%20comfort." class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 7 -->
+    <div class="col">
+      <div class="card h-100 product-card">
+        <a href="product.html?name=Evening%20Dress&price=69.99&img=https://wonaconcept.com/upload/catalog/4200/4154/t_wona_concept_spring_drop_2522_1.webp&desc=Graceful%20dress%20for%20elegant%20nights." style="text-decoration:none; color:inherit;">
+          <img src="https://wonaconcept.com/upload/catalog/4200/4154/t_wona_concept_spring_drop_2522_1.webp" class="card-img-top" alt="Evening Dress">
+          <h5 class="card-title mt-2">Evening Dress</h5>
+        </a>
+        <div class="card-body">
+          <p class="card-text">Graceful dress for elegant nights.</p>
+          <p><strong>$69.99</strong></p>
+          <a href="product.html?name=Evening%20Dress&price=69.99&img=https://wonaconcept.com/upload/catalog/4200/4154/t_wona_concept_spring_drop_2522_1.webp&desc=Graceful%20dress%20for%20elegant%20nights." class="btn btn-outline-primary">Add to Cart</a>
+          <a href="product.html?name=Evening%20Dress&price=69.99&img=https://wonaconcept.com/upload/catalog/4200/4154/t_wona_concept_spring_drop_2522_1.webp&desc=Graceful%20dress%20for%20elegant%20nights." class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 8 -->
+    <div class="col">
+      <div class="card h-100 product-card">
+        <a href="product.html?name=Leather%20Jacket&price=89.99&img=https://i.pinimg.com/474x/52/90/28/5290288fc677dcc2c7098f0f030c5e65.jpg&desc=Bold%20leather%20look%20with%20premium%20feel." style="text-decoration:none; color:inherit;">
+          <img src="https://i.pinimg.com/474x/52/90/28/5290288fc677dcc2c7098f0f030c5e65.jpg" class="card-img-top" alt="Leather Jacket">
+          <h5 class="card-title mt-2">Leather Jacket</h5>
+        </a>
+        <div class="card-body">
+          <p class="card-text">Bold leather look with premium feel.</p>
+          <p><strong>$89.99</strong></p>
+          <a href="product.html?name=Leather%20Jacket&price=89.99&img=https://i.pinimg.com/474x/52/90/28/5290288fc677dcc2c7098f0f030c5e65.jpg&desc=Bold%20leather%20look%20with%20premium%20feel." class="btn btn-outline-primary">Add to Cart</a>
+          <a href="product.html?name=Leather%20Jacket&price=89.99&img=https://i.pinimg.com/474x/52/90/28/5290288fc677dcc2c7098f0f030c5e65.jpg&desc=Bold%20leather%20look%20with%20premium%20feel." class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 9 -->
+    <div class="col">
+      <div class="card h-100 product-card">
+        <a href="product.html?name=White%20Sneakers&price=49.99&img=https://www.blackstonefootwear.com/thumbnail/2d/de/6b/1739194910/1080x1350_CG117.WHT.CRAF-FINN-LOW.3_1920x1920.jpg?ts=1739194911&desc=Clean%20look%2C%20comfy%20step." style="text-decoration:none; color:inherit;">
+          <img src="https://www.blackstonefootwear.com/thumbnail/2d/de/6b/1739194910/1080x1350_CG117.WHT.CRAF-FINN-LOW.3_1920x1920.jpg?ts=1739194911" class="card-img-top" alt="White Sneakers">
+          <h5 class="card-title mt-2">White Sneakers</h5>
+        </a>
+        <div class="card-body">
+          <p class="card-text">Clean look, comfy step.</p>
+          <p><strong>$49.99</strong></p>
+          <a href="product.html?name=White%20Sneakers&price=49.99&img=https://www.blackstonefootwear.com/thumbnail/2d/de/6b/1739194910/1080x1350_CG117.WHT.CRAF-FINN-LOW.3_1920x1920.jpg?ts=1739194911&desc=Clean%20look%2C%20comfy%20step." class="btn btn-outline-primary">Add to Cart</a>
+          <a href="product.html?name=White%20Sneakers&price=49.99&img=https://www.blackstonefootwear.com/thumbnail/2d/de/6b/1739194910/1080x1350_CG117.WHT.CRAF-FINN-LOW.3_1920x1920.jpg?ts=1739194911&desc=Clean%20look%2C%20comfy%20step." class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 10 -->
+    <div class="col">
+      <div class="card h-100 product-card">
+        <a href="product.html?name=Silk%20Scarf&price=14.99&img=https://m.media-amazon.com/images/I/71guC8yaugL._AC_UY1000_.jpg&desc=Add%20elegance%20to%20any%20outfit." style="text-decoration:none; color:inherit;">
+          <img src="https://m.media-amazon.com/images/I/71guC8yaugL._AC_UY1000_.jpg" class="card-img-top" alt="Silk Scarf">
+          <h5 class="card-title mt-2">Silk Scarf</h5>
+        </a>
+        <div class="card-body">
+          <p class="card-text">Add elegance to any outfit.</p>
+          <p><strong>$14.99</strong></p>
+          <a href="product.html?name=Silk%20Scarf&price=14.99&img=https://m.media-amazon.com/images/I/71guC8yaugL._AC_UY1000_.jpg&desc=Add%20elegance%20to%20any%20outfit." class="btn btn-outline-primary">Add to Cart</a>
+          <a href="product.html?name=Silk%20Scarf&price=14.99&img=https://m.media-amazon.com/images/I/71guC8yaugL._AC_UY1000_.jpg&desc=Add%20elegance%20to%20any%20outfit." class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 11 -->
+    <div class="col">
+      <div class="card h-100 product-card">
+        <a href="product.html?name=Retro%20Sunglasses&price=24.99&img=https://static-01.daraz.lk/p/bb5f14fa8f39a355605e94e9a90d45e8.jpg&desc=Protect%20your%20eyes%20with%20vintage%20flair." style="text-decoration:none; color:inherit;">
+          <img src="https://static-01.daraz.lk/p/bb5f14fa8f39a355605e94e9a90d45e8.jpg" class="card-img-top" alt="Retro Sunglasses">
+          <h5 class="card-title mt-2">Retro Sunglasses</h5>
+        </a>
+        <div class="card-body">
+          <p class="card-text">Protect your eyes with vintage flair.</p>
+          <p><strong>$24.99</strong></p>
+          <a href="product.html?name=Retro%20Sunglasses&price=24.99&img=https://static-01.daraz.lk/p/bb5f14fa8f39a355605e94e9a90d45e8.jpg&desc=Protect%20your%20eyes%20with%20vintage%20flair." class="btn btn-outline-primary">Add to Cart</a>
+          <a href="product.html?name=Retro%20Sunglasses&price=24.99&img=https://static-01.daraz.lk/p/bb5f14fa8f39a355605e94e9a90d45e8.jpg&desc=Protect%20your%20eyes%20with%20vintage%20flair." class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 12 -->
+    <div class="col">
+      <div class="card h-100 product-card">
+        <a href="product.html?name=Canvas%20Backpack&price=54.99&img=https://buffalojackson.com/cdn/shop/products/dakota-reserve-waxed-canvas-rucksack-backpack-2_2000x.jpg?v=1605618503&desc=Durable%20backpack%20for%20everyday%20adventures." style="text-decoration:none; color:inherit;">
+          <img src="https://buffalojackson.com/cdn/shop/products/dakota-reserve-waxed-canvas-rucksack-backpack-2_2000x.jpg?v=1605618503" class="card-img-top" alt="Canvas Backpack">
+          <h5 class="card-title mt-2">Canvas Backpack</h5>
+        </a>
+        <div class="card-body">
+          <p class="card-text">Durable backpack for everyday adventures.</p>
+          <p><strong>$54.99</strong></p>
+          <a href="product.html?name=Canvas%20Backpack&price=54.99&img=https://buffalojackson.com/cdn/shop/products/dakota-reserve-waxed-canvas-rucksack-backpack-2_2000x.jpg?v=1605618503&desc=Durable%20backpack%20for%20everyday%20adventures." class="btn btn-outline-primary">Add to Cart</a>
+          <a href="product.html?name=Canvas%20Backpack&price=54.99&img=https://buffalojackson.com/cdn/shop/products/dakota-reserve-waxed-canvas-rucksack-backpack-2_2000x.jpg?v=1605618503&desc=Durable%20backpack%20for%20everyday%20adventures." class="btn btn-primary">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Velvet Vogue. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart - Velvet Vogue</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body { background-color: #f8f9fa; }
+    .cart-container { max-width: 900px; margin: 40px auto; background: #fff; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.08); padding: 30px; }
+    .cart-title { font-weight: bold; }
+    .cart-empty { text-align: center; color: #888; margin: 40px 0; }
+    .cart-img { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; }
+    .cart-actions { display: flex; gap: 10px; }
+    .cart-summary { text-align: right; margin-top: 30px; }
+    .cart-summary h5 { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="Logo" style="height:25px;margin-right:10px;">
+        Velvet Vogue
+      </a>
+      <a href="cart.html" class="btn btn-outline-light ms-auto">Cart</a>
+    </div>
+  </nav>
+
+  <div class="cart-container">
+    <h2 class="cart-title mb-4">Your Cart</h2>
+    <div id="cartItems"></div>
+    <div class="cart-summary" id="cartSummary"></div>
+    <div class="text-end mt-4">
+      <a href="index.html" class="btn btn-secondary">Continue Shopping</a>
+      <button id="checkoutBtn" class="btn btn-warning ms-2" disabled>Checkout</button>
+    </div>
+  </div>
+
+  <footer class="mt-5 bg-dark text-white text-center py-3">
+    © 2025 Velvet Vogue. All Rights Reserved.
+  </footer>
+
+  <script>
+  // Get cart from localStorage or empty array
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  function renderCart() {
+    const cartItemsDiv = document.getElementById('cartItems');
+    const cartSummaryDiv = document.getElementById('cartSummary');
+    if (cart.length === 0) {
+      cartItemsDiv.innerHTML = '<div class="cart-empty">Your cart is empty.</div>';
+      cartSummaryDiv.innerHTML = '';
+      document.getElementById('checkoutBtn').disabled = true;
+      return;
+    }
+
+    let total = 0;
+    cartItemsDiv.innerHTML = cart.map((item, idx) => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
+      return `
+        <div class="row align-items-center mb-3 border-bottom pb-3">
+          <div class="col-2">
+            <img src="${item.img}" class="cart-img" alt="${item.name}">
+          </div>
+          <div class="col-4">
+            <h5>${item.name}</h5>
+            <div>Size: ${item.size}</div>
+            <div>Color: ${item.color}</div>
+            <div class="text-muted">${item.desc}</div>
+          </div>
+          <div class="col-2">
+            <input type="number" min="1" value="${item.quantity}" class="form-control form-control-sm" style="width:70px;" onchange="updateQuantity(${idx}, this.value)">
+          </div>
+          <div class="col-2">
+            $${itemTotal.toFixed(2)}
+          </div>
+          <div class="col-2 cart-actions">
+            <button class="btn btn-danger btn-sm" onclick="removeItem(${idx})">Remove</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    cartSummaryDiv.innerHTML = `<h5>Total: $${total.toFixed(2)}</h5>`;
+    document.getElementById('checkoutBtn').disabled = false;
+  }
+
+  // Remove item from cart
+  function removeItem(idx) {
+    cart.splice(idx, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+  }
+
+  // Update quantity
+  function updateQuantity(idx, value) {
+    const qty = Math.max(1, parseInt(value));
+    cart[idx].quantity = qty;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+  }
+
+  // Checkout button
+  document.getElementById('checkoutBtn').onclick = function() {
+    alert('Proceeding to checkout...');
+    // window.location.href = "checkout.html";
+  };
+
+  // Expose functions for inline handlers
+  window.removeItem = removeItem;
+  window.updateQuantity = updateQuantity;
+
+  renderCart();
+  </script>
+</body>
+</html>
