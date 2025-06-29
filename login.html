@@ -111,7 +111,7 @@
       document.getElementById('loginBox').style.display = 'block';
     };
 
-    // Register form logic
+    // Register form logic (AJAX)
     document.getElementById('registerForm').onsubmit = function(e) {
       e.preventDefault();
       var name = document.getElementById('registerName').value.trim();
@@ -123,27 +123,45 @@
         alert("Passwords do not match!");
         return;
       }
-      // Save credentials to localStorage (for demo only, not secure)
-      localStorage.setItem('velvetvogue_user', JSON.stringify({ name, email, password }));
-      document.getElementById('registerSuccess').style.display = 'block';
-      document.getElementById('registerForm').reset();
+
+      fetch('register.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ name, email, password })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.success) {
+          document.getElementById('registerSuccess').style.display = 'block';
+          document.getElementById('registerForm').reset();
+        } else {
+          alert(data.message);
+        }
+      });
     };
 
-    // Login form logic
+    // Login form logic (AJAX)
     document.getElementById('loginForm').onsubmit = function(e) {
       e.preventDefault();
       var email = document.getElementById('loginEmail').value.trim();
       var password = document.getElementById('loginPassword').value;
-      var user = JSON.parse(localStorage.getItem('velvetvogue_user'));
-      if(user && user.email === email && user.password === password) {
-        // Store logged-in user email and first name
-        const firstName = user.name.split(' ')[0];
-        localStorage.setItem('velvetvogue_loggedin', email);
-        localStorage.setItem('velvetvogue_firstname', firstName);
-        window.location.href = "index.html";
-      } else {
-        alert("Invalid email or password!");
-      }
+
+      fetch('login.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ email, password })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.success) {
+          const firstName = data.name.split(' ')[0];
+          localStorage.setItem('velvetvogue_loggedin', data.email);
+          localStorage.setItem('velvetvogue_firstname', firstName);
+          window.location.href = "index.html";
+        } else {
+          alert(data.message);
+        }
+      });
     };
   </script>
 </body>
